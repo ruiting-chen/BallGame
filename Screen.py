@@ -19,20 +19,24 @@ class Screen:
 
     @staticmethod
     def get_screen():
-        print(Screen.static_screen.screen)
         return Screen.static_screen.screen
 
     @staticmethod
     def get_color():
-        print(Screen.static_screen.color)
         return Screen.static_screen.color
 
     @staticmethod
     def get_top():
-        print(Screen.static_screen.top)
         return Screen.static_screen.top
 
     @staticmethod
     def get_bottom():
-        print(Screen.static_screen.bottom)
         return Screen.static_screen.bottom
+
+    @staticmethod
+    def get_left():
+        return Screen.static_screen.left
+
+    @staticmethod
+    def get_right():
+        return Screen.static_screen.right
