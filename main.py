@@ -16,7 +16,7 @@ def run():
     jump_velocity = -40
     run_velocity = 10
 
-    B = Block(100, 120, 200, 250, ball_color)
+    B = Block(345, 355, 200, 250, ball_color, A)
     running = True
     while running:
         for event in pygame.event.get():
@@ -24,13 +24,16 @@ def run():
                 running = False
 
         if pygame.key.get_pressed()[pygame.K_UP]:
-            A.set_y_velocity(jump_velocity)
+            A.ball_jump(jump_velocity)
         if pygame.key.get_pressed()[pygame.K_RIGHT]:
             A.set_x_velocity(run_velocity)
         elif pygame.key.get_pressed()[pygame.K_LEFT]:
             A.set_x_velocity(-run_velocity)
 
-        A.draw()
+        A.draw(Screen.get_color())
+        Screen.update_ball_pos(0.01, A)
+        B.update_ball_pos(0.01, A)
+        A.draw(A.get_color())
         B.draw()
         pygame.display.update()
 
